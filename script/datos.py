@@ -11,8 +11,10 @@ def importar_datos():
     df = df.rename(columns={"SKINCARE FACIAL LIMPIEZA Descripción general": "productos"})
     df = df.rename(columns={"Precio": "precio"})
     df["productos"] = df["productos"].str.title()
-   
+    df["Código"] = df["Código"].astype("Int64")  # mantiene NaN si existieran
 
+    df[["productos", "presentacion"]] = df["productos"].str.split(" X ", n=1, expand=True)
+    
     return df
 
 
