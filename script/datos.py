@@ -13,7 +13,11 @@ def importar_datos():
     df["productos"] = df["productos"].str.title()
     df["Código"] = df["Código"].astype("Int64")  # mantiene NaN si existieran
 
-    df[["productos", "presentacion"]] = df["productos"].str.split(" X ", n=1, expand=True)
+    # df[["productos", "presentacion"]] = df["productos"].str.split(" X ", n=1, expand=True)
+
+    split_df = df["productos"].str.split(" X ", n=1, expand=True)
+    df["productos"] = split_df[0]
+    df["presentacion"] = split_df[1].fillna("No disponible")
     
     return df
 
