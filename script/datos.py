@@ -1,7 +1,5 @@
 import pandas as pd
 
-
-
 def importar_datos():
     sheet_id = "1ytGK55mhfm-GmGpj7-rAU9ue0DKcizlA"
     sheet_name = "AGOSTO%202025"
@@ -13,8 +11,7 @@ def importar_datos():
     df = df.rename(columns={"SKINCARE FACIAL LIMPIEZA Descripción general": "productos"})
     df = df.rename(columns={"Precio": "precio"})
     df["productos"] = df["productos"].str.title()
-
-    
+   
 
     return df
 
