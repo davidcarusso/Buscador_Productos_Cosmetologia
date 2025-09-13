@@ -30,6 +30,7 @@ def normalizar(texto):
         return texto.lower()
     return ""
 
+```
 
 
 ## Requisitos
